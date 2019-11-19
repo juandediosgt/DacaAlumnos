@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml">
+    <ui:define name="content">
+        <div align="center" style="margin-top: 50px; margin-right: 50px">
+            <h1 style="color: white">MENU PRINCIPAL</h1>
+            <h:form id="menuAdminForm">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style="text-align: center; background-color: transparent; width: 400px">
+                    <table align="center" cellspacing="20">
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuAdminForm, growl" action="#{menuAdministradorBean.irMenuCrear()}">
+                                    <p:graphicImage value="/Images/icon_account.png" width="100px" height="100px"/>
+                                </p:commandLink>
+                            </td>
+                            <td>
+                                <p:commandLink update="menuAdminForm, growl" action="#{menuAdministradorBean.irMenuVer()}">
+                                    <p:graphicImage value="/Images/icon_search.png" width="100px" height="100px"/>
+                                </p:commandLink>
+                            </td>
+                            <td>
+                                <p:commandLink update="menuAdminForm, growl" action="#{menuAdministradorBean.irMenuActualizar()}">
+                                    <p:graphicImage value="/Images/icon_update.png" width="100px" height="100px"/>
+                                </p:commandLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Nuevo Usuario" style="color: white"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="Consultar Usuario" style="color: white"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="Actualizar Usuario" style="color: white"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuAdminForm, growl" action="#{menuAdministradorBean.irMenuReportes()}">
+                                    <p:graphicImage value="/Images/icon_report5.png" width="100px" height="100px"/>
+                                </p:commandLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Reportes" style="color: white"/>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

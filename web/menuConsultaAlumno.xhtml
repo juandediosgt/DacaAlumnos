@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="content">
+        
+        <script language="javascript" type="text/javascript">
+
+                    //* Este Codigo permite Validar que sea un campo Numerico
+                    function Solo_Numerico(variable){
+                        Numer=parseInt(variable);
+                        if (isNaN(Numer)){
+                            return "";
+                        }
+                        return Numer;
+                    }
+                    function ValNumero(Control){
+                        Control.value=Solo_Numerico(Control.value);
+                    }
+                    //* Fin del Codigo para Validar que sea un campo Numerico
+                  
+                    
+        </script>
+        <script type="text/javascript">
+                     //* Este Codigo permite Validar que sea un campo de solo texto
+                    function validar(e) { // 1
+                         tecla = (document.all) ? e.keyCode : e.which; // 2
+                      if (tecla==8) return true; // 3
+                         patron =/[A-Za-z\sáéíóú]/; // 4
+                         te = String.fromCharCode(tecla); // 5
+                      return patron.test(te); // 6
+                    }
+        </script>
+        
+       <div align="center" style="margin-top: 50px; margin-right: 50px">
+            <h1 style="color: white">Actualizar información de alumno</h1>
+            <br/>
+            <h:form id="menuConsultarAlumnoForm"> 
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;text-align: center;border-color: transparent; background-color: #009444; width: 600px">
+                    <table align="center" cellspacing="20" style="color: white"> 
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuConsultarAlumnoForm, growl" action="#{menuConsultaAlumnoBean.accionesConsulta(1)}">
+                                    <p:graphicImage value="/Images/ic_AbcAlumno/ic_carnet.png" width="75px" height="75px"/>
+                                </p:commandLink>
+                            </td>
+                            <td>
+                                <p:commandLink update="menuConsultarAlumnoForm, growl" action="#{menuConsultaAlumnoBean.accionesConsulta(2)}">
+                                    <p:graphicImage value="/Images/ic_AbcAlumno/ic_nombre.png" width="95px" height="95px"/>
+                                </p:commandLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Por carné"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="por nombre"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Ingrese número de Carné"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:inputText value="#{menuConsultaAlumnoBean.carne}" disabled="#{menuConsultaAlumnoBean.actCarne}" maxlength="6"  onkeyup="return ValNumero(this);"/> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Nombre"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:inputText value="#{menuConsultaAlumnoBean.nombre}" disabled="#{menuConsultaAlumnoBean.actNombre}" onkeypress="return validar(event)"  />
+                            </td>                         
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Apellido"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:inputText  value="#{menuConsultaAlumnoBean.apellido}" disabled="#{menuConsultaAlumnoBean.actApellido}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Area"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:selectOneMenu id="area" value="#{menuConsultaAlumnoBean.area}" disabled="#{menuConsultaAlumnoBean.actArea}" style="width: 175px">
+                                    <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
+                                    <f:selectItems value="#{menuConsultaAlumnoBean.listaAreas}"  />
+                                </p:selectOneMenu>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Ciclo"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:inputText  value="#{menuConsultaAlumnoBean.ciclo}" disabled="#{menuConsultaAlumnoBean.actCiclo}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Foto"/>
+                            </td>
+                            <td style="text-align: left">
+                           <p:graphicImage height="175" width="200" value="/Images/logo_uvg.png"/>
+                           </td>
+                        </tr>
+                       
+                        <tr >
+                            <td colspan="4" align="center">
+                            <p:commandLink update="menuConsultarAlumnoForm, growl" action="#{menuConsultaAlumnoBean.consultarAlumno()}" title="Presione el boton para buscar la información de un alumno en el sistema">
+                                <p:graphicImage value="/Images/ic_AbcAlumno/ic_buscar.png" width="70px" height="70px"/>
+                            </p:commandLink>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td  colspan="8" align="center">
+                             <p:outputLabel value="Buscar"/>
+                            </td>
+                        </tr >
+                         <tr border="1px">
+                            <td colspan="4" align="right">
+                                <p:commandLink update="menuConsultarAlumnoForm, growl " action="#{menuConsultaAlumnoBean.irmenuAlumno()}">
+                                    <p:graphicImage value="/Images/ic_AbcAlumno/ic_atras.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                              
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>   
+    </ui:define>
+
+</ui:composition>

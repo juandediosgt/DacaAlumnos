@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns = "http://www.w3.org/1999/xhtml">
+   <ui:define name="content">
+                <script language="javascript" type="text/javascript">
+
+                    //* Este Codigo permite Validar que sea un campo Numerico
+                    function Solo_Numerico(variable){
+                        Numer=parseInt(variable);
+                        if (isNaN(Numer)){
+                            return "";
+                        }
+                        return Numer;
+                    }
+                    function ValNumero(Control){
+                        Control.value=Solo_Numerico(Control.value);
+                    }
+                    //* Fin del Codigo para Validar que sea un campo Numerico    
+                </script>
+                <script type="text/javascript">
+                     //* Este Codigo permite Validar que sea un campo de solo texto
+                    function validar(e) { // 1
+                         tecla = (document.all) ? e.keyCode : e.which; // 2
+                      if (tecla==8) return true; // 3
+                         patron =/[A-Za-z\sáéíóú]/; // 4
+                         te = String.fromCharCode(tecla); // 5
+                      return patron.test(te); // 6
+                    }
+                 </script>
+       
+                <div align="center" style="margin-top: 50px; margin-right: 50px">
+                  <h1 style="color: white">Ingreso de nuevo alumno</h1>
+                  <br/>
+                   <h:form id="menuNuevoAlumnoForm">
+                   <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;text-align: center;border-color: transparent; background-color: #009444; width: 500px">
+                   <table align="center" cellspacing="20" style="color: white">
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Carné"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:inputText value="#{menuNuevoAlumnoBean.carne}" maxlength="6"  onkeyup="return ValNumero(this);"/>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Nombre"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:inputText value="#{menuNuevoAlumnoBean.nombre}" onkeypress="return validar(event)" />
+                            </td>
+                        </tr>
+                       <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Apellido"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:inputText value="#{menuNuevoAlumnoBean.apellido}" onkeypress="return validar(event)" />
+                            </td>
+                        </tr>
+                       <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Area"/>
+                            </td>
+                            <td style="text-align: left">
+                              <p:selectOneMenu id="area" value="#{menuNuevoAlumnoBean.area}" style="width: 300px" >
+                                    <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
+                                    <f:selectItems value="#{menuNuevoAlumnoBean.listaAreas}"  />
+                                </p:selectOneMenu>
+                            </td>
+                        </tr>
+                       <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Ciclo"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:outputLabel  value="#{menuNuevoAlumnoBean.ciclo}"/>
+                            </td >
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">
+                                <p:outputLabel value="Nombre Foto"/>
+                            </td>
+                            <td style="text-align: left">
+                                <p:inputText value="#{menuNuevoAlumnoBean.foto}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="center">
+                                <p:commandButton  value="Registrar" title="Presione el boton para registra un nuevo alumno a el sistema"
+                                                 action="#{menuNuevoAlumnoBean.validarAlumno()}" update="menuNuevoAlumnoForm"/>
+                            </td>
+                        </tr>
+                       <tr>
+                            <td colspan="4" align="right">
+                                <p:commandLink update="menuNuevoAlumnoForm, growl "  action="#{menuNuevoAlumnoBean.irMenuPricipal()}">
+                                    <p:graphicImage value="/Images/ic_AbcAlumno/ic_atras.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+                    </h:form>
+        </div>        
+    </ui:define>
+
+</ui:composition>

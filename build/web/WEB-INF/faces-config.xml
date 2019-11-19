@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>administrador</from-outcome>
+            <to-view-id>/menuAdministrador.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>supervisor</from-outcome>
+            <to-view-id>/menuSupervisor.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>coordinador</from-outcome>
+            <to-view-id>/menuAdministrador.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>usuario</from-outcome>
+            <to-view-id>/menuAlumno.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cambiocontrasena</from-outcome>
+            <to-view-id>/cambioContrasena.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/cambioContrasena.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/menuAdministrador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/verUsuarios.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/menuAdministrador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/menuAdministrador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>crear</from-outcome>
+            <to-view-id>/menuCrearUsuario.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizar</from-outcome>
+            <to-view-id>/actualizarUsuario.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ver</from-outcome>
+            <to-view-id>/verUsuarios.xhtml</to-view-id>
+        </navigation-case>        
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/menuAdministrador.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/menuAdministrador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/menuCrearUsuario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/menuAdministrador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/menuAlumno.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>crear</from-outcome>
+            <to-view-id>/menuNuevoAlumno.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizar</from-outcome>
+            <to-view-id>/menuActualizarAlumno.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ver</from-outcome>
+            <to-view-id>/menuConsultaAlumno.xhtml</to-view-id>
+        </navigation-case>   
+        <navigation-case>
+            <from-outcome>salir</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>     
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/menuAlumno.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/menuNuevoAlumno.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuAlumno.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+        <from-view-id>/menuActualizarAlumno.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuAlumno.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/menuConsultaAlumno.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuAlumno.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/menuSupervisor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>reportes</from-outcome>
+            <to-view-id>/crearReporte.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/reportes.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuSupervisor.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/actualizarUsuario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuAdministrador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <managed-bean>
+        <description>Bean que gestiona la logica del login</description>
+        <managed-bean-name>indexBean</managed-bean-name>
+        <managed-bean-class>beans.IndexBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean encargado de gestionar el login del usuario a nivel del modelo</description>
+        <managed-bean-name>indexDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.IndexDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Pojo que contiene la estructura de un usuario</description>
+        <managed-bean-name>usuario</managed-bean-name>
+        <managed-bean-class>pojos.Usuario</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Pojo que contiene el menu del administrador</description>
+        <managed-bean-name>menuAdministradorBean</managed-bean-name>
+        <managed-bean-class>beans.MenuAdministradorBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Pojo que contiene la logica de crear usuarios</description>
+        <managed-bean-name>menuCrearUsuarioBean</managed-bean-name>
+        <managed-bean-class>beans.MenuCrearUsuarioBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Gestiona todas las acciones de la interfaz CambioContraseña
+</description>
+        <managed-bean-name>cambioPassword</managed-bean-name>
+        <managed-bean-class>beans.CambioPassword</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>gestiona todas las acciones con la base de datos de la interfaz cambio de contraseña</description>
+        <managed-bean-name>cambioContraseñaDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.CambioContraseñaDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>gestiona todas las acciones de la interfaz de cmabio de contraseña</description>
+        <managed-bean-name>cambioPassBean</managed-bean-name>
+        <managed-bean-class>beans.CambioPassBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Maneja todos los metodos de la vista verUsuarios
+</description>
+        <managed-bean-name>verUsuariosBean</managed-bean-name>
+        <managed-bean-class>beans.VerUsuariosBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>gestiona todos los metodos de la vista menu supervisor</description>
+        <managed-bean-name>menuSupervisorBean</managed-bean-name>
+        <managed-bean-class>beans.MenuSupervisorBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del menu para ingresar nuevos alumnos</description>
+        <managed-bean-name>menuNuevoAlumnoBean</managed-bean-name>
+        <managed-bean-class>beans.MenuNuevoAlumnoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>pojo que  contiene la estructurta de un alumno</description>
+        <managed-bean-name>alumno</managed-bean-name>
+        <managed-bean-class>pojos.Alumno</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Pojo que contiene la estructura de las areas</description>
+        <managed-bean-name>area</managed-bean-name>
+        <managed-bean-class>pojos.Area</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean encargado de gestionar el ingreso de nuevos alumnos a nivel del modelo</description>
+        <managed-bean-name>menuNuevoAlumnoDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.MenuNuevoAlumnoDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del menu para actualizar los datos de alumnos</description>
+        <managed-bean-name>menuActualizarAlumnoBean</managed-bean-name>
+        <managed-bean-class>beans.MenuActualizarAlumnoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean encargado de gestionar la actulizacion de alumnos a nivel de modelo</description>
+        <managed-bean-name>menuActualizarAlumnoDdAction</managed-bean-name>
+        <managed-bean-class>dbActions.MenuActualizarAlumnoDdAction</managed-bean-class>    
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona los reportes</description>
+        <managed-bean-name>reportesBean</managed-bean-name>
+        <managed-bean-class>beans.ReportesBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del menu consultar un alumno</description>
+        <managed-bean-name>menuConsultaAlumnoBean</managed-bean-name>
+        <managed-bean-class>beans.MenuConsultaAlumnoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean encargado de gestional el ingreso de nuevos alumnos a nivel de modelo</description>
+        <managed-bean-name>menuConsultaAlumnoDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.MenuConsultaAlumnoDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>gestiona los metodos de la vista para generar reportes
+</description>
+        <managed-bean-name>crearReporteBean</managed-bean-name>
+        <managed-bean-class>beans.CrearReporteBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>gestiona los metodos de la vista para el menu alumno
+</description>
+        <managed-bean-name>menuAlumnoBean</managed-bean-name>
+        <managed-bean-class>beans.MenuAlumnoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>gestiona todos los metodos de actualizacion de usuario</description>
+        <managed-bean-name>actualizarUsuarioBean</managed-bean-name>
+        <managed-bean-class>beans.ActualizarUsuarioBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>gestiona todas las acciones con la base de datos de la vista actualizar usuario</description>
+        <managed-bean-name>newJSFManagedBean</managed-bean-name>
+        <managed-bean-class>dbActions.NewJSFManagedBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>gestiona todas las acciones en la base de datos de la visata actualizar usuario</description>
+        <managed-bean-name>actualizarUsuarioDbaction</managed-bean-name>
+        <managed-bean-class>dbActions.ActualizarUsuarioDbaction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del ver alumno</description>
+        <managed-bean-name>verAlumnosBean</managed-bean-name>
+        <managed-bean-class>beans.VerAlumnosBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+</faces-config>

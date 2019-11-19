@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="content">
+         <div align="center" style="margin-top: 50px">
+            <h1 style="color: white">CAMBIAR CONTRASEÑA</h1>
+            <br/>
+            <h:form id="CambioContraseñaForm">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style="text-align: center; background-color: transparent; width: 800px">
+                    <table align="center" cellspacing="20" style="color: white">
+                        <tr>
+                            <td>
+                                <p:outputLabel value="NUEVA CONTRASEÑA"/>
+                            </td>
+                            <td>
+                                <p:password value="#{cambioPassword.password}"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="REPITA CONTRASEÑA"/>
+                            </td>
+                            <td>
+                                <p:password value="#{cambioPassword.comprobacion}"/>
+                            </td>
+                        </tr>                 
+                        <tr>
+                            <td colspan="4" align="center">
+                                <p:commandButton value="GUARDAR CAMBIOS" icon="ui-icon-disk" action="#{cambioPassword.cambiarContraseña()}" update="CambioContraseñaForm"/>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>        
+    </ui:define>
+
+</ui:composition>
